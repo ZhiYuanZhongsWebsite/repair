@@ -102,20 +102,20 @@
 				}
 				if (getVerifyCode == verifyCode) {
 					return true;
+					var user = document.getElementById("phone").value;
+					var pass = document.getElementById("password").value;
+					for (var i = 0; i < username.length; i++) {
+						if(username[i] == user && pass == password) {
+							alert("登录成功");
+							window.location.href = "https://zhiyuanzhongswebsite.github.io/repair/"+user+".html"
+						} else {
+							alert("登录失败");
+						}
+					}
 				}
 			}
 			button.onclick = function () {
 				verify();
-				var user = document.getElementById("phone").value;
-				var pass = document.getElementById("password").value;
-				for (var i = 0; i < username.length; i++) {
-					if(username[i] == user && pass == password) {
-						alert("登录成功");
-						window.location.href = "https://zhiyuanzhongswebsite.github.io/repair/"+user+".html"
-					} else {
-						alert("登录失败");
-					}
-				}
 			}
 		</script>
 	</body>
