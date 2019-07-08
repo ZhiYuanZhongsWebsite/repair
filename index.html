@@ -93,15 +93,21 @@
 				"13433435345"
 			];
 			var password = "repair11223344";
+			var verifyAction;
 			function verify () {
 				var verifyCode = parseInt(Math.random()*1000000);
 				var getVerifyCode = prompt("请输入验证码：（验证码为："+verifyCode+"）");
 				if (getVerifyCode == null || getVerifyCode != verifyCode) {
 					alert('验证码错误或没有填写！您无法登陆');
-					return false;
+					verifyAction = false;
 				}
 				if (getVerifyCode == verifyCode) {
-					return true;
+					verifyAction = true;
+				}
+			}
+			button.onclick = function () {
+				verify();
+				if(verifyAction == true){
 					var user = document.getElementById("phone").value;
 					var pass = document.getElementById("password").value;
 					for (var i = 0; i < username.length; i++) {
@@ -113,9 +119,6 @@
 						}
 					}
 				}
-			}
-			button.onclick = function () {
-				verify();
 			}
 		</script>
 	</body>
